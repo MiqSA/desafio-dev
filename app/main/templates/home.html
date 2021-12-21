@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stores Manager</title>
+</head>
+<body>
+
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <style>
+                ul {
+                  list-style-type: none;
+                  margin: 0;
+                  padding: 0;
+                  overflow: hidden;
+                  background-color: #333;
+                }
+
+                li {
+                  float: right;
+                }
+
+                li a {
+                  display: block;
+                  color: white;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                }
+
+                li a:hover {
+                  background-color: #111;
+                }
+
+                .active {
+                  background-color: #04AA6D;
+                }
+
+                body {
+                  background-color: #D5D8DC;
+                }
+
+            </style>
+            <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <ul>
+          <li><a href="#" class="active" href="#contact">Login</a></li>
+          <li><a href="http://0.0.0.0:5057/">Home</a></li>
+          <li><a href="http://0.0.0.0:5057/upload">Add Data</a></li>
+        </ul>
+
+    <style>
+        table, th, td { border: 1px solid black;}
+    </style>
+
+    <h1>Total de Entrada e Saída por Loja</h1>
+
+    <div style="margin-top:40px">
+        <table  style="width:50%">
+      <tr>
+        <th>Loja</th>
+        <th>Total</th>
+      </tr>
+            {% for stores in total %}
+              <tr>
+                    <td style="text-align:center">{{ stores['store_name'] }}</td>
+                    <td style="text-align:center">R$ {{ stores['transaction_value'] }}</td>
+              </tr>
+            {% endfor %}
+
+    </table>
+    </div>
+
+
+    <h1>Total por Transações e Loja</h1>
+    <table  style="width:50%">
+      <tr>
+        <th>Nome da Loja</th>
+        <th>Tipo de Operação</th>
+        <th>Total</th>
+      </tr>
+
+        {% for valores in transactions %}
+          <tr>
+                <td style="text-align:center">{{ valores['store_name'] }}</td>
+                <td style="text-align:center">{{ valores['description'] }}</td>
+                {% if valores['description'] in ['Boleto', 'Financiamento', 'Aluguel'] %}
+                    <td style="text-align:center; color:red"> - R$ {{ valores['transaction_value'] }}</td>
+                {% else %}
+                    <td style="text-align:center; color:blue"> + R$ {{ valores['transaction_value'] }}</td>
+                {% endif %}
+          </tr>
+        {% endfor %}
+
+    </table>
+</form>
+
+
+    </body>
+</html>

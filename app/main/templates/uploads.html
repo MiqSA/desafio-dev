@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <style>
+                ul {
+                  list-style-type: none;
+                  margin: 0;
+                  padding: 0;
+                  overflow: hidden;
+                  background-color: #333;
+                }
+
+                li {
+                  float: right;
+                }
+
+                li a {
+                  display: block;
+                  color: white;
+                  text-align: center;
+                  padding: 14px 16px;
+                  text-decoration: none;
+                }
+
+                li a:hover {
+                  background-color: #111;
+                }
+
+                .active {
+                  background-color: #04AA6D;
+                }
+
+                body {
+                  background-color: #D5D8DC;
+                }
+
+            </style>
+            <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <ul>
+          <li><a href="#" class="active" href="#contact">Login</a></li>
+          <li><a href="http://0.0.0.0:5057/">Home</a></li>
+          <li><a href="http://0.0.0.0:5057/upload">Add Data</a></li>
+
+        </ul>
+
+        <form style="margin-top:40px; text-align: center" action="http://0.0.0.0:5057/v1.0/files/upload"
+            method="POST"
+            enctype="multipart/form-data">
+        <h1><label for="myFile">Upload Arquivo</label><br></h1>
+        <input type="file" id="myFile" name="myFile"><br>
+        <input type="submit" value="Enviar">
+</form>
+
+
+    </body>
+</html>
