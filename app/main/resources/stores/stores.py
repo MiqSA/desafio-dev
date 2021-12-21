@@ -40,9 +40,27 @@ def transactions_by_stores():
         data = Transactions().get_all_transactions()
         if data['status'] != 200:
             return Output().response_api(data['status'], data['results'])
-        transactions_by_store = data['results'].to_json(orient='index')
-        result = json.loads(transactions_by_store)
+        result = data['results'].to_json(orient='records')
+        result = json.loads(result)
         return Output().response_api(200, result)
     except Exception as err:
-        print('Error in get stores', err)
+        print('Error in get transactions by stores', err)
+        return Output().response_api(500, None)
+
+
+@stores_blueprint.route(main_route + '/transactions/total', methods=["GET"])
+def transactions_total():
+    '''
+        :return:
+        This endpoint the value total transactions by stores
+    '''
+    try:
+        data = Transactions().get_total()
+        if data['status'] != 200:
+            return Output().response_api(data['status'], data['results'])
+        result = data['results'].to_json(orient='records')
+        result = json.loads(result)
+        return Output().response_api(200, result)
+    except Exception as err:
+        print('Error in get total value', err)
         return Output().response_api(500, None)
