@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  api:
+    build:
+      dockerfile: docker/api.dockerfile
+      context: .
+    command: >
+      sh -c "
+              cd app/
+              export FLASK_APP=manage.py
+              flask run"
+    container_name: api
+    ports:
+      - 5057:5057
+    environment:
+      - PORT=3306
+      - USER=root
+      - PASSWORD=123
+      - HOST=db
+      - DATABASE=stores_manager
+    networks:
+      - develop-network
+    depends_on:
+      - db
+    links:
+      - db
+    restart: on-failure:10
+  db:
+    build:
+      dockerfile: docker/mysql.dockerfile
+      context: .
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+      - MYSQL_DATABASE=stores_manager
+    ports:
+      - 3306:3306
+    networks:
+      - develop-network
+
+networks:
+  develop-network:
+    driver: bridge
