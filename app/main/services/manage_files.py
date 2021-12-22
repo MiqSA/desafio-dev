@@ -4,7 +4,6 @@ import pandas as pd
 import os
 
 
-
 class Information():
     def __init__(self, row=None):
         self.row = row
@@ -75,11 +74,11 @@ class CRUD():
 
     def save_data_in_database(self, df, table_name):
         try:
+            # Check if exists table in dataframe
+            comand_sql = f"""SELECT id FROM {table_name} ORDER BY ID DESC LIMIT 1"""
+            read_sql = pd.read_sql(comand_sql, con=ConnectionDB().get_engine())
+            last_id = int(read_sql.id[0])
             if table_name != 'transactions_type':
-                # Check if exists table in dataframe
-                comand_sql = f"""SELECT id FROM {table_name} ORDER BY ID DESC LIMIT 1"""
-                read_sql = pd.read_sql(comand_sql, con=ConnectionDB().get_engine())
-                last_id = int(read_sql.id[0])
                 print('Populating table ..')
                 df.index += last_id + 1
                 df.to_sql(table_name,
@@ -88,7 +87,7 @@ class CRUD():
                           index_label='id')
                 print(f'Successfully add in {table_name}')
         except Exception as err:
-            print("Table don't exists!")
+            print("Table don't exists!", err)
             print('Creating table ...')
             df.to_sql(table_name,
                       con=ConnectionDB().get_engine(),

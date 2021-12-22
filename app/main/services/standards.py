@@ -9,6 +9,7 @@ class Output():
             401: "Unauthorized",
             403: "Forbidden",
             404: "Data don't founded!",
+            405: "Method Not Allowed",
             500: "Internal server error!",
             502: "Bad Gateway"
         }
