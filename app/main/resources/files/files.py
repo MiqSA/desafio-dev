@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, send_from_directory
+from flask import Blueprint, request, url_for, redirect
 from app.main.services.standards import Output
 from app.main.services.manage_files import CRUD
 from app.main.config import basedir
@@ -8,7 +8,6 @@ import os
 files_blueprint = Blueprint('files', __name__)
 _basedir_files = basedir + '/databases/datafiles/'
 
-# basedir = os.path.abspath(os.path.dirname(__file__))
 
 version = '/v1.0'
 exclusive_route = '/files'
@@ -23,8 +22,7 @@ def upload_file():
         if '.txt' not in file.filename:
             return Output().response_api(403, 'Choose a valid file .txt')
         CRUD(filename=f'{_basedir_files}/{file.filename}').main()
-        print('Success...')
-        return Output().response_api(200, 'Success upload file!!')
+        return redirect(url_for('pages.index'))
     except Exception as err:
         print('Error in  upload files', err)
         return Output().response_api(500, None)

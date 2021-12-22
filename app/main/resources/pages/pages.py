@@ -1,10 +1,8 @@
-from flask import Blueprint, request, redirect, render_template
-from app.main.services.standards import Output
-import os
+from flask import Blueprint, render_template
 import requests
 
-
 pages_blueprint = Blueprint('pages', __name__, template_folder='app/main/templates')
+
 
 @pages_blueprint.route('/')
 def index():
