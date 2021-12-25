@@ -7,7 +7,9 @@ from datetime import timedelta
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# Get credentials
+API_VERSION = 'v1.0'
+
+
 _USERDB = os.getenv('USER')
 _PASSWORD = os.getenv('PASSWORD')
 _HOST = os.getenv('HOST')
@@ -75,4 +77,6 @@ class Database():
             print('Success in create database')
         except Exception as err:
             print('Error in create database!', err)
+
+
 

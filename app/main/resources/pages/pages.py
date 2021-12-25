@@ -4,7 +4,7 @@ import requests
 pages_blueprint = Blueprint('pages', __name__, template_folder='app/main/templates')
 
 
-@pages_blueprint.route('/')
+@pages_blueprint.route('/', methods=["GET"])
 def index():
     transactions = requests.get('http://0.0.0.0:5057/v1.0/stores/transactions')
     transactions = transactions.json()
@@ -14,7 +14,7 @@ def index():
     return render_template('home.html', transactions=transactions['results'], total=total['results'])
 
 
-@pages_blueprint.route('/upload')
+@pages_blueprint.route('/upload', methods=["GET"])
 def upload():
     return render_template('uploads.html')
 

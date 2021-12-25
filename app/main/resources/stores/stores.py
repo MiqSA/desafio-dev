@@ -1,14 +1,14 @@
 from flask import Blueprint, request
 from app.main.services.standards import Output
 from app.main.services.explore import Transactions
+from app.main.config import API_VERSION
 import json
 
 
 stores_blueprint = Blueprint('stores', __name__)
 
-version = '/v1.0'
 exclusive_route = '/stores'
-main_route = version + exclusive_route
+main_route = '/' + API_VERSION  + exclusive_route
 
 
 @stores_blueprint.route(main_route, methods=["GET"])

@@ -1,7 +1,7 @@
 from flask import Blueprint, request, url_for, redirect
 from app.main.services.standards import Output
 from app.main.services.manage_files import CRUD
-from app.main.config import basedir
+from app.main.config import basedir, API_VERSION
 import os
 
 
@@ -9,9 +9,8 @@ files_blueprint = Blueprint('files', __name__)
 _basedir_files = basedir + '/databases/datafiles/'
 
 
-version = '/v1.0'
 exclusive_route = '/files'
-main_route = version + exclusive_route
+main_route = '/' + API_VERSION + exclusive_route
 
 
 @files_blueprint.route(main_route + '/upload', methods=["POST"])
