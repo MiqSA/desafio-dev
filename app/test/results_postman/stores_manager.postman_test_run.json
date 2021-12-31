@@ -1,0 +1,214 @@
+{
+	"id": "0170c18e-6a08-4857-9ebe-e32c4c484fd2",
+	"name": "stores",
+	"timestamp": "2021-12-31T19:22:02.739Z",
+	"collection_id": "2242ee14-664d-40b6-8c67-09e07869ab9d",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 16,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "80e0df31-752a-40f4-bd15-cb84c716a907",
+			"name": "stores",
+			"url": "http://0.0.0.0:5057/v1.0/stores",
+			"time": 57,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Response should be okay to process": true,
+				"Response time is less than 200ms": true,
+				"Test data type of the response": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should be okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data type of the response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				57
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Response should be okay to process": true,
+					"Response time is less than 200ms": true,
+					"Test data type of the response": true
+				}
+			]
+		},
+		{
+			"id": "284815b8-de60-4bd3-9086-9266a0869826",
+			"name": "files",
+			"url": "http://0.0.0.0:5057/v1.0/files/upload",
+			"time": 51,
+			"responseCode": {
+				"code": 405,
+				"name": "METHOD NOT ALLOWED"
+			},
+			"tests": {
+				"Status test error": true,
+				"Response should be error to process": true,
+				"Response time is less than 200ms": true,
+				"Test data type of the response": true
+			},
+			"testPassFailCounts": {
+				"Status test error": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should be error to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data type of the response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				51
+			],
+			"allTests": [
+				{
+					"Status test error": true,
+					"Response should be error to process": true,
+					"Response time is less than 200ms": true,
+					"Test data type of the response": true
+				}
+			]
+		},
+		{
+			"id": "d0328d45-7259-4963-8d15-396583fb3e11",
+			"name": "transactions",
+			"url": "http://0.0.0.0:5057/v1.0/stores/transactions",
+			"time": 110,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Response should be okay to process": true,
+				"Response time is less than 200ms": true,
+				"Test data type of the response": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should be okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data type of the response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				110
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Response should be okay to process": true,
+					"Response time is less than 200ms": true,
+					"Test data type of the response": true
+				}
+			]
+		},
+		{
+			"id": "a103f402-7ba1-489d-8079-4719aa9aa49d",
+			"name": "transactions - total",
+			"url": "http://0.0.0.0:5057/v1.0/stores/transactions/total",
+			"time": 76,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Response should be okay to process": true,
+				"Response time is less than 200ms": true,
+				"Test data type of the response": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should be okay to process": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Test data type of the response": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				76
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Response should be okay to process": true,
+					"Response time is less than 200ms": true,
+					"Test data type of the response": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 294,
+	"collection": {
+		"requests": [
+			{
+				"id": "80e0df31-752a-40f4-bd15-cb84c716a907",
+				"method": "GET"
+			},
+			{
+				"id": "284815b8-de60-4bd3-9086-9266a0869826",
+				"method": "GET"
+			},
+			{
+				"id": "d0328d45-7259-4963-8d15-396583fb3e11",
+				"method": "GET"
+			},
+			{
+				"id": "a103f402-7ba1-489d-8079-4719aa9aa49d",
+				"method": "GET"
+			}
+		]
+	}
+}
