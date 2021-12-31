@@ -6,7 +6,7 @@ app = create_app('dev')
 
 @app.cli.command('run')
 def create_user():
-    app.run()
+    app.run(host='0.0.0.0', port=5057)
 
 @app.cli.command('test')
 def test():
